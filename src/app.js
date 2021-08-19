@@ -69,6 +69,7 @@ const gallery = document.querySelector('.js-gallery');
 const button = document.querySelector('[data-action="close-lightbox"]');
 const lightbox = document.querySelector(".lightbox");
 const overlay = document.querySelector(".lightbox__overlay");
+
 const cardsList = createGallery (galleryItems);
 
 gallery.insertAdjacentHTML('beforeEnd', cardsList);
@@ -119,10 +120,3 @@ function onCloseBox(e){
   lightbox.classList.remove("is-open");
   };
 };
-
-function onEvent(){
-  galleryItems.forEach((item) =>
-  console.log(item)
-  )
-
-}
