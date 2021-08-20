@@ -65,6 +65,7 @@ const galleryItems = [
 ];
 
 const body = document.querySelector('body');
+const image = document.querySelectorAll('.lightbox__image')
 const gallery = document.querySelector('.js-gallery');
 const button = document.querySelector('[data-action="close-lightbox"]');
 const lightbox = document.querySelector(".lightbox");
@@ -97,26 +98,37 @@ e.preventDefault();
 window.addEventListener('keydown', onCloseEscModal);
 if(e.target.nodeName === "IMG"){
   lightbox.classList.add("is-open");
-  lightbox.querySelector('.lightbox__image').src = e.target.src;
+  lightbox.querySelector('.lightbox__image').src = e.target.dataset.source;
   lightbox.querySelector('.lightbox__image').alt = e.target.alt;
 };
 };
 
+function closeModal(){
+lightbox.classList.remove("is-open");
+lightbox.querySelector('.lightbox__image').src = e.target.src
+}
+
+
+
 function onCloseModal (e){
 if(e.target.nodeName === "BUTTON"){
-  lightbox.classList.remove("is-open");
+  closeModal();
 };
 };
 
 function onCloseEscModal(e){
   window.removeEventListener('keydown', onCloseEscModal);
 if(e.code === "Escape"){
-  lightbox.classList.remove("is-open");
+  closeModal();
 };
 };
 
 function onCloseBox(e){
   if(e.currentTarget === e.target){
-  lightbox.classList.remove("is-open");
+    closeModal();
   };
 };
+
+
+
+
