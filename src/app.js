@@ -105,9 +105,8 @@ if(e.target.nodeName === "IMG"){
 
 function closeModal(){
 lightbox.classList.remove("is-open");
-lightbox.querySelector('.lightbox__image').src = e.target.src
+lightbox.querySelector('.lightbox__image').removeAttribute('src', '');
 }
-
 
 
 function onCloseModal (e){
